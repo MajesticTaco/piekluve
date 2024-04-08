@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Panel</title>
+</head>
+<body>
+    <h1>User Panel</h1>
+
+    <h2>Employees</h2>
+    <ul>
+        {% for employee in employees %}
+        <li>{{ employee.name }} {{ employee.surname }} ({{ employee.status }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Door Keys</h2>
+    <ul>
+        {% for key in keys %}
+        <li>{{ key.name }} - {{ key.building }} ({{ key.description }}) {% if key.issued %} (Issued) {% endif %}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Issue Door Key</h2>
+    <form action="/issue_key" method="POST">
+        <label for="employee_id">Employee ID:</label>
+        <input type="text" id="employee_id" name="employee_id" required><br>
+        <label for="key_id">Key ID:</label>
+        <input type="text" id="key_id" name="key_id" required><br>
+        <input type="submit" value="Issue Key">
+    </form>
+
+    <h2>Return Door Key</h2>
+    <form action="/return_key" method="POST">
+        <label for="key_id_return">Key ID:</label>
+        <input type="text" id="key_id_return" name="key_id_return" required><br>
+        <input type="submit" value="Return Key">
+    </form>
+</body>
+</html>

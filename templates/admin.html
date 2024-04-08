@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+
+    <h2>Add Employee</h2>
+    <form action="/add_employee" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname" required><br>
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" required><br>
+        <input type="submit" value="Add Employee">
+    </form>
+
+    <h2>Add Key</h2>
+    <form action="/add_key" method="POST">
+        <label for="key_name">Name:</label>
+        <input type="text" id="key_name" name="key_name" required><br>
+        <label for="building">Building:</label>
+        <input type="text" id="building" name="building" required><br>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required><br>
+        <label for="boxes_number">Boxes Number:</label>
+        <input type="number" id="boxes_number" name="boxes_number" required><br>
+        <input type="submit" value="Add Key">
+    </form>
+
+    <h2>Employees</h2>
+    <ul>
+        {% for employee in employees %}
+        <li>
+            {{ employee.name }} {{ employee.surname }} ({{ employee.status }})
+            <a href="/delete_employee/{{ employee.id }}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Keys</h2>
+    <ul>
+        {% for key in keys %}
+        <li>
+            {{ key.name }} - {{ key.building }} ({{ key.description }})
+            <a href="/delete_key/{{ key.id }}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
