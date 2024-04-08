@@ -6,30 +6,30 @@
     <title>Admin Panel</title>
 </head>
 <body>
-    <h1>Admin Panel</h1>
+    <h1>Adminstratora Panelis</h1>
 
-    <h2>Add Employee</h2>
+    <h2>Pievienot Darbinieku</h2>
     <form action="/add_employee" method="POST">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br>
+        <input type="text" id="name" name="vards" required><br>
         <label for="surname">Surname:</label>
-        <input type="text" id="surname" name="surname" required><br>
+        <input type="text" id="surname" name="uzvards" required><br>
         <label for="status">Status:</label>
-        <input type="text" id="status" name="status" required><br>
-        <input type="submit" value="Add Employee">
+        <input type="text" id="status" name="statuss" required><br>
+        <input type="submit" value="Pievienot Darbinieku">
     </form>
 
-    <h2>Add Key</h2>
+    <h2>Pievienot Atslegu</h2>
     <form action="/add_key" method="POST">
         <label for="key_name">Name:</label>
-        <input type="text" id="key_name" name="key_name" required><br>
+        <input type="text" id="key_name" name="atslega" required><br>
         <label for="building">Building:</label>
-        <input type="text" id="building" name="building" required><br>
+        <input type="text" id="building" name="ēka" required><br>
         <label for="description">Description:</label>
-        <input type="text" id="description" name="description" required><br>
+        <input type="text" id="description" name="apraksts" required><br>
         <label for="boxes_number">Boxes Number:</label>
-        <input type="number" id="boxes_number" name="boxes_number" required><br>
-        <input type="submit" value="Add Key">
+        <input type="number" id="boxes_number" name="kastes nr." required><br>
+        <input type="submit" value="Pievienot Atslegu">
     </form>
 
     <h2>Employees</h2>

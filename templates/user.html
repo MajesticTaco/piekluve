@@ -6,7 +6,7 @@
     <title>User Panel</title>
 </head>
 <body>
-    <h1>User Panel</h1>
+    <h1>Lietotāja Panelis</h1>
 
     <h2>Employees</h2>
     <ul>
@@ -22,20 +22,20 @@
         {% endfor %}
     </ul>
 
-    <h2>Issue Door Key</h2>
+    <h2>Izsniegt atslegu</h2>
     <form action="/issue_key" method="POST">
         <label for="employee_id">Employee ID:</label>
-        <input type="text" id="employee_id" name="employee_id" required><br>
+        <input type="text" id="employee_id" name="darbinieka_id" required><br>
         <label for="key_id">Key ID:</label>
-        <input type="text" id="key_id" name="key_id" required><br>
+        <input type="text" id="key_id" name="atslegas_id" required><br>
         <input type="submit" value="Issue Key">
     </form>
 
-    <h2>Return Door Key</h2>
+    <h2>Sanemt atslegu</h2>
     <form action="/return_key" method="POST">
         <label for="key_id_return">Key ID:</label>
-        <input type="text" id="key_id_return" name="key_id_return" required><br>
-        <input type="submit" value="Return Key">
+        <input type="text" id="key_id_return" name="atslegas_id_sanemt required><br>
+        <input type="submit" value="Sanemt atslegu">
     </form>
 </body>
 </html>

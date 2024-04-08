@@ -4,25 +4,21 @@ import sqlite3
 from flask import g
 from datetime import datetime
 
-# Function to get the database connection
 def get_db():
     if 'db' not in g:
         g.db = sqlite3.connect('database.db')
         g.db.row_factory = sqlite3.Row
     return g.db
 
-# Function to close the database connection
 def close_db(e=None):
     db = g.pop('db', None)
     if db is not None:
         db.close()
 
-# Initialize the database when the application starts
 def init_db():
     db = get_db()
     cursor = db.cursor()
 
-    # Create tables if they don't exist
     cursor.execute('''CREATE TABLE IF NOT EXISTS employees (
                     id INTEGER PRIMARY KEY,
                     name TEXT,
@@ -52,7 +48,6 @@ def init_db():
     db.commit()
     cursor.close()
 
-# Other database operations...
 def get_all_employees():
     db = get_db()
     cur = db.cursor()
@@ -97,8 +92,6 @@ def delete_key(key_id):
     db.commit()
     cur.close()
 
-# Implement other database operations for keys and issuances
-
 def issue_key(employee_id, key_id, issuance_time):
     db = get_db()
     cur = db.cursor()
@@ -124,7 +117,6 @@ def issue_key(employee_id, key_id):
     db.commit()
     cur.close()
 
-# Function to mark a door key as returned
 def return_key(key_id):
     db = get_db()
     cur = db.cursor()
